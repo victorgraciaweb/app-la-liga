@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProfessionalClub
+ *
+ * @ORM\Table(name="professional_club", indexes={@ORM\Index(name="fk_professional_has_club_club1_idx", columns={"id_club"}), @ORM\Index(name="fk_professional_has_club_professional_idx", columns={"id_professional"})})
+ * @ORM\Entity
+ */
+class ProfessionalClub
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salary", type="decimal", precision=10, scale=2, nullable=true)
+     */
+    private $salary = 'NULL';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_professional_club", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProfessionalClub;
+
+    /**
+     * @var \AppBundle\Entity\Club
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Club")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_club", referencedColumnName="id_club")
+     * })
+     */
+    private $idClub;
+
+    /**
+     * @var \AppBundle\Entity\Professional
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Professional")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_professional", referencedColumnName="id_professional")
+     * })
+     */
+    private $idProfessional;
+
+
+}
+

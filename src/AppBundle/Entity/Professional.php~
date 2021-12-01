@@ -1,0 +1,74 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Professional
+ *
+ * @ORM\Table(name="professional", indexes={@ORM\Index(name="fk_professional_professional_type1_idx", columns={"id_professional_type"}), @ORM\Index(name="fk_professional_position1_idx", columns={"id_position"})})
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProfessionalRepository")
+ */
+class Professional
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=255, nullable=false)
+     */
+    private $surname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alias", type="string", length=255, nullable=true)
+     */
+    private $alias = 'NULL';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_birth", type="date", nullable=false)
+     */
+    private $dateBirth;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_professional", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idProfessional;
+
+    /**
+     * @var \AppBundle\Entity\Position
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Position")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_position", referencedColumnName="id_position")
+     * })
+     */
+    private $idPosition;
+
+    /**
+     * @var \AppBundle\Entity\ProfessionalType
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ProfessionalType")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_professional_type", referencedColumnName="id_professional_type")
+     * })
+     */
+    private $idProfessionalType;
+
+
+}
+

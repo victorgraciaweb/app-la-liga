@@ -1,0 +1,11 @@
+api_professional:
+    type: rest
+    resource: "@AppBundle/Controller/ProfessionalController.php"
+    prefix: professional
+    name_prefix:  api_professional
+
+api_club:
+    type: rest
+    resource: "@AppBundle/Controller/ClubController.php"
+    prefix: club
+    name_prefix:  api_club

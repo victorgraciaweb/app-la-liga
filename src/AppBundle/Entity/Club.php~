@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Club
+ *
+ * @ORM\Table(name="club")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ClubRepository")
+ */
+class Club
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image = 'NULL';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="budget", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $budget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_club", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idClub;
+
+
+}
+
