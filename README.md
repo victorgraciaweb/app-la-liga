@@ -27,3 +27,10 @@ How to run?
 5. Open your browser if you have installed server symfony:
 
     http://localhost:8000/
+
+How to test?
+--
+
+1. Execute this command
+
+    `./vendor/bin/simple-phpunit`
